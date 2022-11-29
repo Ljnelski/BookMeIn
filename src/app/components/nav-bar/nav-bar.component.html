@@ -1,0 +1,31 @@
+<!-- <div class="toolbar">
+
+</div> -->
+<nav class="navbar fixed top py-2 border-bottom">
+    <div class="container-fluid">
+        <a class="navbar-brand mx-2">BookMeIn</a>
+        <ul class="nav">
+          <li *ngIf="!(authService.isLoggedIn$ | async)" class="nav-item">
+            <a href="login" class="nav-link link-dark px-4">Login</a>
+          </li>
+          <li *ngIf="!(authService.isLoggedIn$ | async)" class="nav-item">
+            <a href="register" class="nav-link link-dark px-4">Register</a>
+          </li> 
+          <li *ngIf="canShowNavItem('customer')" class="nav-item">
+            <a href="home" class="nav-link link-dark px-4">Home</a>
+          </li>                   
+          <li *ngIf="canShowNavItem('customer')" class="nav-item">
+            <a href="#" class="nav-link link-dark px-4">My Bookings</a>
+          </li>
+          <li *ngIf="canShowNavItem('admin')" class="nav-item">
+            <a href="#" class="nav-link link-dark px-4">Register Service Provider</a>
+          </li>      
+          <li *ngIf="canShowNavItem('admin')" class="nav-item">
+            <a href="data-table" class="nav-link link-dark px-4">DataTable</a>
+          </li>  
+          <li *ngIf="authService.isLoggedIn$ |async" class="nav-item">
+            <a href="#" class="nav-link link-dark px-4">My Account</a>
+          </li>  
+        </ul>
+    </div>    
+</nav>
