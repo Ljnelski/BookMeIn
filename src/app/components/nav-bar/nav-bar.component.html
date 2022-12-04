@@ -18,11 +18,14 @@
             <a href="#" class="nav-link link-dark px-4">My Bookings</a>
           </li>
           <li *ngIf="canShowNavItem('admin')" class="nav-item">
-            <a href="#" class="nav-link link-dark px-4">Register Service Provider</a>
+            <a href="service-provider-register" class="nav-link link-dark px-4">Register Service Provider</a>
           </li>      
           <li *ngIf="canShowNavItem('admin')" class="nav-item">
             <a href="data-table" class="nav-link link-dark px-4">DataTable</a>
           </li>  
+          <li *ngIf="canShowNavItem('customer')" class="nav-item">
+              <a href="home" class="nav-link link-dark px-4">Logout</a>
+          </li>
           <li *ngIf="authService.isLoggedIn$ |async" class="nav-item">
             <a href="#" class="nav-link link-dark px-4">My Account</a>
           </li>  
