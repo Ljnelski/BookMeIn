@@ -9,10 +9,16 @@ import { User } from 'src/app/models/user';
 export class ApiService {
 
   constructor(private httpClient : HttpClient) { }
-  
+
   login(username: string, password: String) : Observable<any> {
-    const response: Observable<any> = of({ username: username, password: password, token: "adskjaekj38f0akd3"})
-    return response;
+  console.log("login called");
+    return this.httpClient.post('http://localhost:3000/login', {
+      username: username,
+      password: password,
+
+    });
+    //const response: Observable<any> = of({ username: username, password: password, token: "adskjaekj38f0akd3"})
+    //return response;
   }
 
   register(newUser: User) {
@@ -20,7 +26,7 @@ export class ApiService {
   }
 
   delete(username: string, password: string) {
-  } 
+  }
 
   getUsers() {
     return this.httpClient.get("http://localhost:3000/users");
