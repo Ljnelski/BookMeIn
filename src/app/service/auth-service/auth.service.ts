@@ -17,7 +17,7 @@ export class AuthService {
     return localStorage.getItem(this.TOKEN_NAME)
   }
 
-  constructor(private apiService: ApiService) { 
+  constructor(private apiService: ApiService) {
     this._isLoggedIn$.next(!!this.token);
     this.user = this.getUser(this.token);
   }
@@ -26,15 +26,19 @@ export class AuthService {
     return this.apiService.login(username, password).pipe(
       tap(response => {
         this._isLoggedIn$.next(true);
-        localStorage.setItem(this.TOKEN_NAME, response.token)
+        localStorage.setItem(this.TOKEN_NAME, response.token);
         this.user = this.getUser(response.token);
         console.log(response.token);
+        //go to home page with window.location
 
+        window.location.href = "/home"
+
+        
       })
     )
   }
 
-  getUser(token: string) : User {
+  getUser(token: string|null) : User {
     if(token) {
       return {
         username: "testUsername",
@@ -50,4 +54,11 @@ export class AuthService {
       }
     }
   }
+
+
+
+
+
+
+
 }

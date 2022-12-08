@@ -28,7 +28,7 @@ export class DatatableComponent implements OnInit {
   }
 
   addUser() {
-    const newUser : User = {      
+    const newUser : User = {
       username : this.newUsername.value,
       password: this.newPassword.value,
       roles: ['customer']
@@ -38,5 +38,6 @@ export class DatatableComponent implements OnInit {
 
     this.apiService.register(newUser).pipe(take(1)).subscribe(response => console.log(response));
     this.apiService.getUsers();
+    window.location.reload();
   }
 }
