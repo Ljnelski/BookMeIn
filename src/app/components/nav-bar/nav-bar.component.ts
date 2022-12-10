@@ -10,7 +10,7 @@ export class NavBarComponent {
   constructor(public authService: AuthService) {}
 
   canShowNavItem(requiredRole, showWhenAuthorized = true) : boolean {
-    console.log(this.authService.user);
+    // console.log(this.authService.user);
     return this.authService.user.roles.includes(requiredRole) && showWhenAuthorized;
   }
 }
