@@ -37,7 +37,7 @@ const routes: Routes = [
   {
     path: 'data-table',
     component: DatatableComponent,
-    canActivate: [IsAuthenticatedGuard],
+    // canActivate: [IsAuthenticatedGuard],
     data: {
       requiredRole: "customer"
     }
