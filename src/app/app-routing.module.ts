@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DatatableComponent } from './components/datatable/datatable.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
+import { MyAccountPageComponent } from './components/my-account-page/my-account-page.component';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
 import { ServiceProviderRegisterPageComponent } from './components/service-provider-register-page/service-provider-register-page.component';
 import { HasRoleGuard } from './guards/has-role/has-role.guard';
@@ -33,6 +34,11 @@ const routes: Routes = [
     data: {
       requiredRole: "admin"
     }
+  },
+  {
+    path: 'my-account',
+    component: MyAccountPageComponent,
+    canActivate: [IsAuthenticatedGuard],
   },
   {
     path: 'data-table',
