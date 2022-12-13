@@ -33,4 +33,10 @@ export class AuthService {
       })
     )
   }
+
+  logout() {
+    this._isLoggedIn$.next(false);
+    localStorage.removeItem(this.TOKEN_NAME)
+    this.user = null
+  }
 }
