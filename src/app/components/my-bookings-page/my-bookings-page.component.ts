@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/service/auth-service/auth.service';
 
 @Component({
   selector: 'app-my-bookings-page',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./my-bookings-page.component.css']
 })
 export class MyBookingsPageComponent {
-
+  constructor(authService: AuthService) {}
 }

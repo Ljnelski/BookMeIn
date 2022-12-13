@@ -11,10 +11,10 @@
           <li *ngIf="!(authService.isLoggedIn$ | async)" class="nav-item">
             <a href="register" class="nav-link link-dark px-4">Register</a>
           </li>
-          <li *ngIf="canShowNavItem('customer')" class="nav-item">
+          <li *ngIf="canShowNavItem(userRole.customer)" class="nav-item">
             <a href="home" class="nav-link link-dark px-4">Home</a>
           </li>
-          <li *ngIf="canShowNavItem('customer')" class="nav-item">
+          <li *ngIf="canShowNavItem(userRole.customer)" class="nav-item">
             <a href="#" class="nav-link link-dark px-4">My Bookings</a>
           </li>
           <li *ngIf="authService.isLoggedIn$ |async" class="nav-item">
@@ -26,7 +26,7 @@
           <li class="nav-item">
             <a href="service-provider-register" class="nav-link link-dark px-4">Manage Appointment</a>
           </li>
-          <li *ngIf="canShowNavItem('customer')" class="nav-item">
+          <li *ngIf="canShowNavItem(userRole.customer)" class="nav-item">
             <a href="home" class="nav-link link-dark px-4">Logout</a>
         </li>
         </ul>

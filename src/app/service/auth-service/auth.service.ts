@@ -9,56 +9,32 @@ import { ApiService } from '../api-service/api.service';
 export class AuthService {
 
   private _isLoggedIn$ = new BehaviorSubject<boolean>(false);
-  private readonly TOKEN_NAME = "liam_auth"
+  private readonly TOKEN_NAME = "user_auth"
   isLoggedIn$ = this._isLoggedIn$.asObservable();
   user!: User;
 
-  get token() {
-    return localStorage.getItem(this.TOKEN_NAME)
+  get currentUser() {
+    return JSON.parse(localStorage.getItem(this.TOKEN_NAME))
   }
 
   constructor(private apiService: ApiService) {
-    this._isLoggedIn$.next(!!this.token);
-    this.user = this.getUser(this.token);
+    this._isLoggedIn$.next(!!this.currentUser);
+    this.user = this.currentUser;
   }
 
   login(username: string, password: string) {
     return this.apiService.login(username, password).pipe(
       tap(response => {
+        console.log("login response: ", response)
         this._isLoggedIn$.next(true);
-        localStorage.setItem(this.TOKEN_NAME, response.token);
-        this.user = this.getUser(response.token);
-        console.log(response.token);
-        //go to home page with window.location
+        localStorage.setItem(this.TOKEN_NAME, JSON.stringify(response));
+        this.user = response
 
-        window.location.href = "/home"
+        // When testing Comment this out, all console will be wiped from console when page router changes
+        // window.location.href = "/home"
 
-        
+
       })
     )
   }
-
-  getUser(token: string|null) : User {
-    if(token) {
-      return {
-        username: "testUsername",
-        password: "password21",
-        roles: ['customer', 'serviceProvider', 'admin']
-      }
-    }
-    else {
-      return {
-        username: null,
-        password: null,
-        roles: []
-      }
-    }
-  }
-
-
-
-
-
-
-
 }

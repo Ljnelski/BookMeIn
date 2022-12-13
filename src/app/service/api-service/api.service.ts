@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of, Subject } from 'rxjs';
+import { Observable, of, Subject, tap } from 'rxjs';
 import { User } from 'src/app/models/user';
 
 @Injectable({
@@ -15,7 +15,6 @@ export class ApiService {
     return this.httpClient.post('http://localhost:3000/login', {
       username: username,
       password: password,
-
     });
     //const response: Observable<any> = of({ username: username, password: password, token: "adskjaekj38f0akd3"})
     //return response;
