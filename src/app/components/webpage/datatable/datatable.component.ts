@@ -6,6 +6,7 @@ import { FormControl } from '@angular/forms';
 import { map, take } from 'rxjs';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/models/user';
+import { UserRole } from 'src/app/models/user_roles';
 import { ApiService } from 'src/app/service/api-service/api.service';
 
 @Component({
@@ -25,18 +26,5 @@ export class DatatableComponent implements OnInit {
   ngOnInit() {
     this.users$ = this.apiService.getUsers().pipe(map(users => users as Array<any>));
     this.users$.subscribe(() => console.log("Updated Users"))
-  }
-
-  addUser() {
-    const newUser : User = {      
-      username : this.newUsername.value,
-      password: this.newPassword.value,
-      roles: ['customer']
-    }
-
-    console.log(newUser);
-
-    this.apiService.register(newUser).pipe(take(1)).subscribe(response => console.log(response));
-    this.apiService.getUsers();
   }
 }

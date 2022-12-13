@@ -10,22 +10,25 @@
           </li>
           <li *ngIf="!(authService.isLoggedIn$ | async)" class="nav-item">
             <a href="register" class="nav-link link-dark px-4">Register</a>
-          </li> 
-          <li *ngIf="canShowNavItem('customer')" class="nav-item">
-            <a href="home" class="nav-link link-dark px-4">Home</a>
-          </li>                   
-          <li *ngIf="canShowNavItem('customer')" class="nav-item">
-            <a href="#" class="nav-link link-dark px-4">My Bookings</a>
           </li>
-          <li *ngIf="canShowNavItem('admin')" class="nav-item">
-            <a href="#" class="nav-link link-dark px-4">Register Service Provider</a>
-          </li>      
-          <li *ngIf="canShowNavItem('admin')" class="nav-item">
-            <a href="data-table" class="nav-link link-dark px-4">DataTable</a>
-          </li>  
+          <li *ngIf="canShowNavItem(userRole.customer)" class="nav-item">
+            <a href="home" class="nav-link link-dark px-4">Home</a>
+          </li>
+          <li *ngIf="canShowNavItem(userRole.customer)" class="nav-item">
+            <a href="my-bookings" class="nav-link link-dark px-4">My Bookings</a>
+          </li>
           <li *ngIf="authService.isLoggedIn$ |async" class="nav-item">
-            <a href="#" class="nav-link link-dark px-4">My Account</a>
-          </li>  
+            <a href="my-account" class="nav-link link-dark px-4">My Account</a>
+          </li>
+          <li class="nav-item">
+            <a href="data-table" class="nav-link link-dark px-4">DataTable</a>
+          </li>
+          <li class="nav-item">
+            <a href="service-provider-register" class="nav-link link-dark px-4">Manage Appointment</a>
+          </li>
+          <li *ngIf="canShowNavItem(userRole.customer)" class="nav-item">
+            <a href="home" class="nav-link link-dark px-4">Logout</a>
+        </li>
         </ul>
-    </div>    
+    </div>
 </nav>

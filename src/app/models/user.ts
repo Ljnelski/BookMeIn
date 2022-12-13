@@ -1,5 +1,8 @@
+import { UserRole } from "./user_roles";
+
 export class User {
-    username: string;
-    password: string;
-    roles: string[]
+    _id: string
+    username!: string| null;
+    password!: string| null;
+    roles!: UserRole[] | null;
 }

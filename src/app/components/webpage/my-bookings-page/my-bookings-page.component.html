@@ -1,0 +1,7 @@
+<div *ngFor="let booking of bookingService.bookings$ | async">
+  <div class="row">
+    <div class="col">
+      <app-booking-display [booking]="booking"></app-booking-display>
+    </div>
+  </div>
+</div>
