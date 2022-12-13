@@ -6,6 +6,9 @@ import { HttpClientModule } from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButton, MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+
 
 
 // Components
@@ -26,7 +29,7 @@ import { AuthService } from './service/auth-service/auth.service';
 // Guards
 import { IsAuthenticatedGuard } from './guards/is-authenticated/is-authenticated.guard';
 import { AuthInterceptor } from './service/auth.interceptor';
-import { MatButton, MatButtonModule } from '@angular/material/button';
+import { MyBookingsPageComponent } from './components/my-bookings-page/my-bookings-page.component';
 
 
 @NgModule({
@@ -38,7 +41,8 @@ import { MatButton, MatButtonModule } from '@angular/material/button';
     ServiceProviderRegisterPageComponent,
     HomePageComponent,
     DatatableComponent,
-    MyAccountPageComponent
+    MyAccountPageComponent,
+    MyBookingsPageComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +52,7 @@ import { MatButton, MatButtonModule } from '@angular/material/button';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatButtonModule,
-
+    MatCardModule,
   ],
   providers: [ApiService, AuthService, IsAuthenticatedGuard, AuthInterceptor],
   bootstrap: [AppComponent]
