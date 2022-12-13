@@ -15,7 +15,7 @@
             <a href="home" class="nav-link link-dark px-4">Home</a>
           </li>
           <li *ngIf="canShowNavItem(userRole.customer)" class="nav-item">
-            <a href="#" class="nav-link link-dark px-4">My Bookings</a>
+            <a href="my-bookings" class="nav-link link-dark px-4">My Bookings</a>
           </li>
           <li *ngIf="authService.isLoggedIn$ |async" class="nav-item">
             <a href="my-account" class="nav-link link-dark px-4">My Account</a>
