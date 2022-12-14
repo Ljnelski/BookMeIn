@@ -1,25 +1,75 @@
 <div class="container">
   <div class="row">
-    <div class="col my-4 d-flex">
+    <div class="col my-3 text-center">
       <h1>Firstname Lastname</h1>
     </div>
   </div>
   <div class="row">
-    <div class="col my-4 d-flex">
+    <div class="col my-3 text-center">
       <button mat-raised-button color="primary">Logout</button>
     </div>
   </div>
-  <div class="row">
-    <div class="col my-4">
-      <button mat-raised-button color="primary" [routerLink]="['/service-provider-register']">Upgrade account</button>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col my-4">
-      <button mat-raised-button color="danger">Delete Account</button>
+  <div *ngIf="authService.lacksRole(userRole.serviceProvider)" class="row">
+    <div class="col my-3 text-center">
+      <button
+        mat-raised-button
+        color="primary"
+        [routerLink]="['/service-provider-register']"
+      >
+        Upgrade account
+      </button>
     </div>
   </div>
 </div>
-
-
-
+<div *ngIf="authService.hasRole(userRole.serviceProvider)" class="container">
+  <div class="row">
+    <div class="col my-3 text-center">
+      <h1>Your Organisation</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col my-3 text-center">
+      <button
+        mat-raised-button
+        color="primary"
+        [routerLink]="['/#']"
+      >
+        Edit Organisation
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col my-3 text-center">
+      <button
+        mat-raised-button
+        color="primary"
+        [routerLink]="['/service-provider-register']"
+      >
+        View Bookings
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col my-3 text-center">
+      <button
+        mat-raised-button
+        color="primary"
+        [routerLink]="['/#']"
+      >
+        Edit Timeslots
+      </button>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col my-3 text-center">
+      <h1>Danger</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col my-3 text-center">
+      <button mat-raised-button color="warn">Delete Account</button>
+    </div>
+  </div>
+</div>

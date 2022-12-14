@@ -23,7 +23,7 @@
           <li class="nav-item">
             <a href="data-table" class="nav-link link-dark px-4">DataTable</a>
           </li>
-          <li class="nav-item">
+          <li *ngIf="!canShowNavItem(userRole.serviceProvider)" class="nav-item">
             <a href="service-provider-register" class="nav-link link-dark px-4">Register As Service Provider</a>
           </li>
           <li *ngIf="canShowNavItem(userRole.customer)" class="nav-item">
