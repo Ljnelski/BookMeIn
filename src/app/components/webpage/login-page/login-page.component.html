@@ -4,14 +4,17 @@
             <div class="col">
                 <label for="username">Username:</label>
                 <input id="username" type="text" formControlName="username">
+                <br>
+                <br>
+                <label for="password">Password :    </label>
+                <input id="password" type="password" formControlName="password">
+                <br>
+                <br>
             </div>
-            <div class="col">
-                <label for="password">Password:</label>
-                <input id="password" type="text" formControlName="password">
-            </div>
+            <button (click)="login()">Login</button>
         </div>
         <div>
-            <button (click)="login()">Login</button>
+
         </div>
     </div>
 </div>

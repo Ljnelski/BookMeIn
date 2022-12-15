@@ -5,4 +5,5 @@ export class User {
     username!: string| null;
     password!: string| null;
     roles!: UserRole[] | null;
+    email!: string | null;
 }
