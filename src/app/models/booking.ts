@@ -13,4 +13,3 @@ export class Booking {
   BookingUserId!: String; //username
   BookingServiceProviderId!: String; //username of service provider
 }
-

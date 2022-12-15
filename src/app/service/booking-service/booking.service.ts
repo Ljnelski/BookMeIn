@@ -17,19 +17,17 @@ export class BookingService {
   ) {}
 
   getBookings() {
-    console.log('getting user');
-    if (this.authService.user) {
-      console.log('there is a user');
-      this.apiService
-        .getUserBookings(this.authService.user._id)
-        .pipe(
-          tap((bookings) => {
-            console.log('bookings from API Service: ', bookings);
-          })
-        )
-        .subscribe((bookings) => {
-          this._bookings$.next(bookings);
-        });
-    }
+    // Guard Clauses
+    if (!this.authService.user) return;
+
+    this.apiService
+      .getUserBookings(this.authService.user._id)
+      .subscribe((bookings) => {
+        this._bookings$.next(bookings);
+      });
+  }
+
+  createBooking() {
+    console.error("CREATE BOOKING NOT IMPLEMENTED")
   }
 }

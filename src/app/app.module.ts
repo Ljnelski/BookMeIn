@@ -29,6 +29,7 @@ import { IsAuthenticatedGuard } from './guards/is-authenticated/is-authenticated
 import { AuthInterceptor } from './service/auth.interceptor';
 import { MyBookingsPageComponent } from './components/webpage/my-bookings-page/my-bookings-page.component';
 import { BookingService } from './service/booking-service/booking.service';
+import { CreateTimeSlotComponent } from './components/webpage/create-time-slot/create-time-slot.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { BookingService } from './service/booking-service/booking.service';
     MyAccountPageComponent,
     MyBookingsPageComponent,
     BookingDisplayComponent,
+    CreateTimeSlotComponent,
   ],
   imports: [
     BrowserModule,
