@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CreateTimeSlotComponent } from './components/webpage/create-time-slot/create-time-slot.component';
+import { CreateTimeSlotPageComponent } from './components/webpage/create-time-slot-page/create-time-slot-page.component';
 import { DatatableComponent } from './components/webpage/datatable/datatable.component';
 import { HomePageComponent } from './components/webpage/home-page/home-page.component';
 import { LoginPageComponent } from './components/webpage/login-page/login-page.component';
@@ -68,7 +68,7 @@ const routes: Routes = [
   },
   {
     path: 'create-time-slot',
-    component: CreateTimeSlotComponent,
+    component: CreateTimeSlotPageComponent,
     canActivate: [IsAuthenticatedGuard, HasRoleGuard],
     data: {
       requiredRole: UserRole.serviceProvider

@@ -72,17 +72,10 @@ export class ApiService {
     // return this.httpClient.get(api + "/bookings" + userId)
   }
 
-  getUserTimeSlots(userId: string): Observable<any[]> {
-    return from([
-      [
-        {
-          _id: 1,
-        },
-        {
-          _id: 2,
-        },
-      ],
-    ]);
+  getOrganizationTimeSlots(organizationId: string): Observable<any> {
+    organizationId = organizationId.trim();
+    const options = {params: new HttpParams().set('id', organizationId)}
+    return this.httpClient.get(this.api + "/timeslots/organization", options)
   }
 
   deleteUser(username: string, password: string) {}

@@ -1,3 +1,15 @@
+<div>
+  <div class="row">
+    <div class="col">
+      <h1>Your Organizations Time Slots</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col text-center">
+      <button mat-raised-button color="primary" [routerLink]="['/create-time-slot']">New Time Slot</button>
+    </div>
+  </div>
+</div>
 <div *ngFor="let timeSlot of timeSlotService.timeSlots$ | async">
   <div class="row">
     <div class="col">

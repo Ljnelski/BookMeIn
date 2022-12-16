@@ -22,7 +22,7 @@ export class TimeSlotService {
     if (this.authService.lacksRole(UserRole.serviceProvider)) return;
 
     this.apiService
-      .getUserTimeSlots(this.authService.user._id)
+      .getOrganizationTimeSlots(this.authService.user._id)
       .subscribe((timeSlots) => {
         this._timeSlots$.next(timeSlots);
       });
