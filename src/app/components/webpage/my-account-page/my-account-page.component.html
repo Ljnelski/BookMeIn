@@ -29,13 +29,24 @@
   </div>
   <div class="row">
     <div class="col my-3 text-center">
-      <button
-        mat-raised-button
-        color="primary"
-        [routerLink]="['/#']"
-      >
-        Edit Organisation
-      </button>
+      <div *ngIf="authService.hasOrganization(); else create_organization">
+        <button
+          mat-raised-button
+          color="primary"
+          [routerLink]="['/organization']"
+        >
+          Edit Organization
+        </button>
+      </div>
+      <ng-template #create_organization>
+        <button
+          mat-raised-button
+          color="primary"
+          [routerLink]="['/organization']"
+        >
+          Create Organization
+        </button>
+      </ng-template>
     </div>
   </div>
   <div class="row">
@@ -51,11 +62,7 @@
   </div>
   <div class="row">
     <div class="col my-3 text-center">
-      <button
-        mat-raised-button
-        color="primary"
-        [routerLink]="['/#']"
-      >
+      <button mat-raised-button color="primary" [routerLink]="['/time-slots']">
         Edit Timeslots
       </button>
     </div>

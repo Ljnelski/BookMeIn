@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { from, Observable, of, Subject, tap } from 'rxjs';
 import { Booking } from 'src/app/models/booking';
+import { Organization } from 'src/app/models/organization';
 import { User } from 'src/app/models/user';
 
 @Injectable({
@@ -23,6 +24,16 @@ export class ApiService {
 
   registerUser(newUser: User) {
     return this.httpClient.post(this.api + '/users', newUser);
+  }
+
+  getUserOrganization(userId: string): Observable<any> {
+    userId = userId.trim()
+    const options = { params: new HttpParams().set('id', userId) }
+    return this.httpClient.get(this.api + "/organizations", options)
+  }
+
+  createOrganization(newOrganization: Organization) {
+    return this.httpClient.post(this.api + "/organizations", newOrganization)
   }
 
   getUserBookings(userId: string): Observable<Booking[]> {
@@ -61,17 +72,10 @@ export class ApiService {
     // return this.httpClient.get(api + "/bookings" + userId)
   }
 
-  getUserTimeSlots(userId: string): Observable<any[]> {
-    return from([
-      [
-        {
-          _id: 1,
-        },
-        {
-          _id: 2,
-        },
-      ],
-    ]);
+  getOrganizationTimeSlots(organizationId: string): Observable<any> {
+    organizationId = organizationId.trim();
+    const options = {params: new HttpParams().set('id', organizationId)}
+    return this.httpClient.get(this.api + "/timeslots/organization", options)
   }
 
   deleteUser(username: string, password: string) {}

@@ -6,8 +6,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButton, MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+
 
 // Components
 import { AppComponent } from './app.component';
@@ -19,6 +25,12 @@ import { HomePageComponent } from './components/webpage/home-page/home-page.comp
 import { DatatableComponent } from './components/webpage/datatable/datatable.component';
 import { MyAccountPageComponent } from './components/webpage/my-account-page/my-account-page.component';
 import { BookingDisplayComponent } from './components/widgets/booking-display/booking-display.component';
+import { TimeSlotsPageComponent } from './components/webpage/time-slots-page/time-slots-page.component';
+import { CreateBookingPageComponent } from './components/webpage/create-booking-page/create-booking-page.component';
+import { TimeSlotDisplayComponent } from './components/widgets/time-slot-display/time-slot-display.component';
+import { OrganizationPageComponent } from './components/webpage/organization-page/organization-page.component';
+import { CreateTimeSlotPageComponent } from './components/webpage/create-time-slot-page/create-time-slot-page.component';
+
 
 // Services
 import { ApiService } from './service/api-service/api.service';
@@ -29,8 +41,6 @@ import { IsAuthenticatedGuard } from './guards/is-authenticated/is-authenticated
 import { AuthInterceptor } from './service/auth.interceptor';
 import { MyBookingsPageComponent } from './components/webpage/my-bookings-page/my-bookings-page.component';
 import { BookingService } from './service/booking-service/booking.service';
-import { CreateTimeSlotComponent } from './components/webpage/create-time-slot/create-time-slot.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +53,11 @@ import { CreateTimeSlotComponent } from './components/webpage/create-time-slot/c
     MyAccountPageComponent,
     MyBookingsPageComponent,
     BookingDisplayComponent,
-    CreateTimeSlotComponent,
+    TimeSlotsPageComponent,
+    CreateBookingPageComponent,
+    TimeSlotDisplayComponent,
+    OrganizationPageComponent,
+    CreateTimeSlotPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,8 +66,13 @@ import { CreateTimeSlotComponent } from './components/webpage/create-time-slot/c
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    MatInputModule,
     MatButtonModule,
     MatCardModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatAutocompleteModule
   ],
   providers: [
     ApiService,

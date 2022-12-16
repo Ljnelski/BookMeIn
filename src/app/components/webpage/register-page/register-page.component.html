@@ -1,56 +1,52 @@
 <!--register a new user using form and post-->
 <div class="container">
-
   <div class="table">
     <table>
-
       <div class="row" [formGroup]="form">
+        <div class="col-auto" class="justify-content-end">
+          <TR
+            ><TD></TD><TD><label for="username">Username:</label></TD>
 
-          <div class="col-auto" class="justify-content-end">
+            <input id="username" type="text" formControlName="username" />
 
-            <TR><TD><TD><label for="username">Username:</label></TD>
+            <br />
 
-              <input id="username" type="text" formControlName="username">
+            <br /> </TR
+          ><TR
+            ><TD></TD><TD><label for="email">Email: </label></TD>
 
-              <br>
+            <input id="email" type="email" formControlName="email" />
 
-              <br>
+            <br />
 
-              <TR><TD><TD><label for="email">Email:    </label></TD>
+            <br /> </TR
+          ><TR
+            ><TD></TD><TD><label for="password">Password : </label></TD>
 
-              <input id="email" type="email" formControlName="email">
+            <input id="password" type="password" formControlName="password" />
 
-              <br>
+            <br />
 
-              <br>
+            <br /> </TR
+          ><TR
+            ><TD></TD
+            ><TD><label for="passwordConfirm">Confirm Password : </label></TD>
 
-              <TR><TD><TD><label for="password">Password :    </label></TD>
+            <input
+              id="passwordConfirm"
+              type="password"
+              formControlName="passwordConfirm"
+            />
 
-              <input id="password" type="password" formControlName="password">
+            <br />
 
-              <br>
+            <br />
+          </TR>
+        </div>
 
-              <br>
-
-              <TR><TD><TD><label for="passwordConfirm">Confirm Password :    </label></TD>
-
-              <input id="passwordConfirm" type="password" formControlName="passwordConfirm">
-
-              <br>
-
-              <br>
-
-
-          </div>
-
-          <button (click)="Register()">Register</button>
-
-
+        <button (click)="Register()">Register</button>
       </div>
     </table>
-      <div>
-      </div>
-
-
-
-
+    <div></div>
+  </div>
+</div>

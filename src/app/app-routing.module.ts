@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CreateTimeSlotComponent } from './components/webpage/create-time-slot/create-time-slot.component';
+import { CreateTimeSlotPageComponent } from './components/webpage/create-time-slot-page/create-time-slot-page.component';
 import { DatatableComponent } from './components/webpage/datatable/datatable.component';
 import { HomePageComponent } from './components/webpage/home-page/home-page.component';
 import { LoginPageComponent } from './components/webpage/login-page/login-page.component';
 import { MyAccountPageComponent } from './components/webpage/my-account-page/my-account-page.component';
 import { MyBookingsPageComponent } from './components/webpage/my-bookings-page/my-bookings-page.component';
+import { OrganizationPageComponent } from './components/webpage/organization-page/organization-page.component';
 import { RegisterPageComponent } from './components/webpage/register-page/register-page.component';
 import { ServiceProviderRegisterPageComponent } from './components/webpage/service-provider-register-page/service-provider-register-page.component';
+import { TimeSlotsPageComponent } from './components/webpage/time-slots-page/time-slots-page.component';
 import { HasRoleGuard } from './guards/has-role/has-role.guard';
 import { IsAuthenticatedGuard } from './guards/is-authenticated/is-authenticated.guard';
 import { UserRole } from './models/user_roles';
@@ -39,6 +41,14 @@ const routes: Routes = [
     }
   },
   {
+    path: 'organization',
+    component: OrganizationPageComponent,
+    canActivate: [IsAuthenticatedGuard, HasRoleGuard],
+    data: {
+      requiredRole: UserRole.serviceProvider
+    }
+  },
+  {
     path: 'my-bookings',
     component: MyBookingsPageComponent,
     canActivate: [IsAuthenticatedGuard]
@@ -49,8 +59,16 @@ const routes: Routes = [
     canActivate: [IsAuthenticatedGuard],
   },
   {
+    path: 'time-slots',
+    component: TimeSlotsPageComponent,
+    canActivate: [IsAuthenticatedGuard, HasRoleGuard],
+    data: {
+      requiredRole: UserRole.serviceProvider
+    }
+  },
+  {
     path: 'create-time-slot',
-    component: CreateTimeSlotComponent,
+    component: CreateTimeSlotPageComponent,
     canActivate: [IsAuthenticatedGuard, HasRoleGuard],
     data: {
       requiredRole: UserRole.serviceProvider
