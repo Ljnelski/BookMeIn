@@ -1,0 +1,54 @@
+<div [formGroup]="organizationData">
+  <div class="row">
+    <div class="col mx-5">
+      <div *ngIf="authService.hasOrganization(); else create_organization">
+        <h1>Update Organization</h1>
+      </div>
+      <ng-template #create_organization>
+        <h1>Create Organization</h1>
+      </ng-template>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col text-center">
+      <mat-form-field class="full-width">
+        <mat-label>Organization Name:</mat-label>
+        <input matInput formControlName="Name" />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col text-center">
+      <mat-form-field class="full-width">
+        <mat-label>Address:</mat-label>
+        <input matInput formControlName="Address" />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col text-center">
+      <mat-form-field class="full-width">
+        <mat-label>Phone:</mat-label>
+        <input matInput formControlName="Phone" />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col text-center">
+      <mat-form-field class="full-width">
+        <mat-label>Opening Hours:</mat-label>
+        <input matInput formControlName="Email" />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col text-center">
+      <div *ngIf="authService.hasOrganization(); else create_organization_btn">
+        <button mat-raised-button color="primary" (click)="updateOrganization()">Update Organization</button>
+      </div>
+      <ng-template #create_organization_btn
+        ><button mat-raised-button color="primary" (click)="createOrganization()" [disabled]="organizationData.invalid">Create Organization</button>
+      </ng-template>
+    </div>
+  </div>
+</div>

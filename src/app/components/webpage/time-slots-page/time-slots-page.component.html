@@ -1,0 +1,7 @@
+<div *ngFor="let timeSlot of timeSlotService.timeSlots$ | async">
+  <div class="row">
+    <div class="col">
+      <app-time-slot-display [timeSlot]="timeSlot"></app-time-slot-display>
+    </div>
+  </div>
+</div>
