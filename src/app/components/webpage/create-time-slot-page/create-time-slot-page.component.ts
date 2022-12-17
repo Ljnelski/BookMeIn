@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { map, Observable } from 'rxjs';
 import { TimeSlotService } from 'src/app/service/time-slot-service/timeslot.service';
 import * as moment from 'moment';
 
