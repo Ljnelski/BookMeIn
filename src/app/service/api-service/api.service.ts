@@ -28,33 +28,32 @@ export class ApiService {
   }
 
   getUserOrganization(userId: string): Observable<Organization> {
-    userId = userId.trim()
-    const options = { params: new HttpParams().set('id', userId) }
-    return this.httpClient.get<Organization>(this.api + "/organizations", options)
+    userId = userId.trim();
+    return this.httpClient.get<Organization>(
+      this.api + '/organization/' + userId);
   }
 
   createOrganization(newOrganization: Organization) {
-    return this.httpClient.post(this.api + "/organizations", newOrganization)
+    return this.httpClient.post(this.api + '/organizations', newOrganization);
   }
 
   getOrganizationTimeSlots(organizationId: string): Observable<any> {
-    console.log(organizationId)
+    console.log(organizationId);
     organizationId = organizationId.trim();
-    const options = {params: new HttpParams().set('id', organizationId)}
-    return this.httpClient.get(this.api + "/timeslots/organization", options)
+    const options = { params: new HttpParams().set('id', organizationId) };
+    console.log(options);
+    return this.httpClient.get(this.api + '/timeslots/organization/' + organizationId);
   }
 
   createTimeSlot(newTimeSlot: TimeSlot) {
-    return this.httpClient.post(this.api + "/timeslots", newTimeSlot);
+    return this.httpClient.post(this.api + '/timeslots', newTimeSlot);
   }
 
   getUserBookings(userId: string): Observable<any> {
-    userId = userId.trim()
-    const options = { params: new HttpParams().set('id', userId) }
-    return this.httpClient.get(this.api + "/bookings", options)
+    userId = userId.trim();
+    const options = { params: new HttpParams().set('id', userId) };
+    return this.httpClient.get(this.api + '/bookings', options);
   }
-
-
 
   deleteUser(username: string, password: string) {}
 

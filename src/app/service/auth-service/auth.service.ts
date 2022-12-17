@@ -101,7 +101,6 @@ export class AuthService {
   }
 
   hasOrganization() : boolean {
-    console.log("organization exists?: ", !!this.organization._id)
-    return !!this.organization._id
+    return !!this.organization?._id
   }
 }

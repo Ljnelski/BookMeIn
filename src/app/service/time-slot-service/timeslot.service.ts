@@ -24,11 +24,8 @@ export class TimeSlotService {
     if (!this.authService.organization) return;
     if (this.authService.lacksRole(UserRole.serviceProvider)) return;
 
-    console.log(this.authService.organization);
-    console.log(this.authService.organization['_id']);
-
     this.apiService
-      .getOrganizationTimeSlots(this.authService.organization['_id'])
+      .getOrganizationTimeSlots(this.authService.organization._id)
       .pipe(
         tap((timeSlots) => {
           console.log("TimeSlot's Recived: ", timeSlots);
