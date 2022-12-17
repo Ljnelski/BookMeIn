@@ -52,23 +52,23 @@ export class AuthService {
     this.apiService
       .getUserOrganization(this.user._id)
       .pipe(tap((response) => {
+
         console.log("Getting Organization Response: ", response);
         localStorage.setItem(this.ORGANIZATION, JSON.stringify(response))
-        // this._organization$.next()
+        // this._organization$.next(response)
       }))
       .subscribe();
   }
 
   createOrganization(formData) {
     let newOrganization : Organization = {
-      Name: formData.Name,
-      Description: formData.Description,
-      Address: formData.Address,
-      Phone: formData.Phone,
-      Email: formData.Email,
-      Username: this.user._id,
-      OrganizationStatus: null,
-      OrganizationType: null
+      name: formData.Name,
+      description: formData.Description,
+      address: formData.Address,
+      phone: formData.Phone,
+      email: formData.Email,
+      serviceProviderId: this.user._id,
+      status: null,
     }
 
     this.apiService.createOrganization(newOrganization).pipe(tap(response => {

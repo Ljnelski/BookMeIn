@@ -12,8 +12,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatSelectModule } from '@angular/material/select';
 
 // Components
 import { AppComponent } from './app.component';
@@ -30,7 +30,6 @@ import { CreateBookingPageComponent } from './components/webpage/create-booking-
 import { TimeSlotDisplayComponent } from './components/widgets/time-slot-display/time-slot-display.component';
 import { OrganizationPageComponent } from './components/webpage/organization-page/organization-page.component';
 import { CreateTimeSlotPageComponent } from './components/webpage/create-time-slot-page/create-time-slot-page.component';
-
 
 // Services
 import { ApiService } from './service/api-service/api.service';
@@ -72,7 +71,8 @@ import { BookingService } from './service/booking-service/booking.service';
     MatDatepickerModule,
     MatFormFieldModule,
     MatNativeDateModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatSelectModule,
   ],
   providers: [
     ApiService,
@@ -80,6 +80,7 @@ import { BookingService } from './service/booking-service/booking.service';
     BookingService,
     IsAuthenticatedGuard,
     AuthInterceptor,
+
   ],
   bootstrap: [AppComponent],
 })

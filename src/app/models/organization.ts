@@ -1,14 +1,13 @@
 
 //Class used to create an organization object
 export class Organization {
-  _id?: String;
-  Name!: String;
-  Description!: String;
-  Address!: String;
-  Phone!: String;
-  Email!: String;
-  Username!: String; //username of the organization admin
-  OrganizationStatus: String = "Active"; //Active or Inactive
-  OrganizationType: String = "Medical";// Mechanic / Hairdresser / Nail Salon /
+  _id?: string;
+  name!: string;
+  description!: string;
+  address!: string;
+  phone!: string;
+  email!: string;
+  serviceProviderId!: string; // id of the organization admin
+  status: string = "Active"; //Active or Inactive
 }
 

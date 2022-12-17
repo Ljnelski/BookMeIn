@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { from, Observable, of, Subject, tap } from 'rxjs';
 import { Booking } from 'src/app/models/booking';
 import { Organization } from 'src/app/models/organization';
+import { TimeSlot } from 'src/app/models/timeslot';
 import { User } from 'src/app/models/user';
 
 @Injectable({
@@ -26,57 +27,34 @@ export class ApiService {
     return this.httpClient.post(this.api + '/users', newUser);
   }
 
-  getUserOrganization(userId: string): Observable<any> {
+  getUserOrganization(userId: string): Observable<Organization> {
     userId = userId.trim()
     const options = { params: new HttpParams().set('id', userId) }
-    return this.httpClient.get(this.api + "/organizations", options)
+    return this.httpClient.get<Organization>(this.api + "/organizations", options)
   }
 
   createOrganization(newOrganization: Organization) {
     return this.httpClient.post(this.api + "/organizations", newOrganization)
   }
 
-  getUserBookings(userId: string): Observable<Booking[]> {
-
-    let exampleBooking1: Booking = {
-      BookingId: '1xarf32wde4gs441d',
-      BookingDate: Date.now().toString(),
-      BookingTime: Date.now().toString(),
-      BookingStatus: 'Confirmed',
-      BookingConfirmationCode: 'conformationCode',
-      BookingNotes:
-        'This is a example booking. Optional Details about the booking can be put here by the customer',
-      BookingCreated: new Date(Date.now()),
-      BookingUpdated: new Date(Date.now()),
-      BookingCancelled: false,
-      BookingUserId: '63908e4b0c1baf1b56516b2d',
-      BookingServiceProviderId: 'Pound Town Meathouse Bar and Grill',
-    };
-
-    let exampleBooking2: Booking = {
-      BookingId: '1xarf32wde4gs441d',
-      BookingDate: Date.now().toString(),
-      BookingTime: Date.now().toString(),
-      BookingStatus: 'Confirmed',
-      BookingConfirmationCode: 'conformationCode',
-      BookingNotes:
-        'This is a example booking. Optional Details about the booking can be put here by the customer',
-      BookingCreated: new Date(Date.now()),
-      BookingUpdated: new Date(Date.now()),
-      BookingCancelled: false,
-      BookingUserId: '63908e4b0c1baf1b56516b2d',
-      BookingServiceProviderId: 'Hospital 24',
-    };
-
-    return from([[exampleBooking1, exampleBooking2]]);
-    // return this.httpClient.get(api + "/bookings" + userId)
-  }
-
   getOrganizationTimeSlots(organizationId: string): Observable<any> {
+    console.log(organizationId)
     organizationId = organizationId.trim();
     const options = {params: new HttpParams().set('id', organizationId)}
     return this.httpClient.get(this.api + "/timeslots/organization", options)
   }
+
+  createTimeSlot(newTimeSlot: TimeSlot) {
+    return this.httpClient.post(this.api + "/timeslots", newTimeSlot);
+  }
+
+  getUserBookings(userId: string): Observable<any> {
+    userId = userId.trim()
+    const options = { params: new HttpParams().set('id', userId) }
+    return this.httpClient.get(this.api + "/bookings", options)
+  }
+
+
 
   deleteUser(username: string, password: string) {}
 
