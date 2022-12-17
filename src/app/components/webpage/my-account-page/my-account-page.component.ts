@@ -11,4 +11,7 @@ export class MyAccountPageComponent {
   userRole = UserRole;
 
   constructor(public authService: AuthService) {}
+  logout() {
+    this.authService.logout();
+  }
 }
