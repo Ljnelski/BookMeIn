@@ -12,4 +12,3 @@ export class Booking {
   userId!: string; //username
   organisationId!: string; //username of service provider
 }
-

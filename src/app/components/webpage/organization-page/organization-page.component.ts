@@ -21,10 +21,10 @@ export class OrganizationPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.organizationData.patchValue({
-      Name: this.authService.organization?.Name,
-      Address: this.authService.organization?.Address,
-      Phone: this.authService.organization?.Phone,
-      Email: this.authService.organization?.Email
+      Name: this.authService.organization?.name,
+      Address: this.authService.organization?.address,
+      Phone: this.authService.organization?.phone,
+      Email: this.authService.organization?.email
     })
     this.organizationData.markAllAsTouched()
   }

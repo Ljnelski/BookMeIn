@@ -62,14 +62,13 @@ export class AuthService {
 
   createOrganization(formData) {
     let newOrganization : Organization = {
-      Name: formData.Name,
-      Description: formData.Description,
-      Address: formData.Address,
-      Phone: formData.Phone,
-      Email: formData.Email,
-      Username: this.user._id,
-      OrganizationStatus: null,
-      OrganizationType: null
+      name: formData.Name,
+      description: formData.Description,
+      address: formData.Address,
+      phone: formData.Phone,
+      email: formData.Email,
+      serviceProviderId: this.user._id,
+      status: null,
     }
 
     this.apiService.createOrganization(newOrganization).pipe(tap(response => {
