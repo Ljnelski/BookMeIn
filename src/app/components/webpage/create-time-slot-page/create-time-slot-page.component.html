@@ -1,29 +1,77 @@
-<div class="row">
-  <div class="col">
-    <mat-form-field appearance="fill">
-      <mat-label>Choose a date</mat-label>
-      <input matInput [matDatepicker]="picker">
-      <mat-hint>MM/DD/YYYY</mat-hint>
-      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
+<form [formGroup]="timeSlotForm">
+  <div>
+    <div class="row">
+      <div class="col"><h1>Booking Start</h1></div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field appearance="fill">
+          <mat-label>Date</mat-label>
+          <input
+            formControlName="startDate"
+            matInput
+            [matDatepicker]="startPicker"
+          />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="startPicker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #startPicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col text-center">
+        <mat-form-field appearance="fill">
+          <mat-label>Time</mat-label>
+          <mat-select formControlName="startTime">
+            <mat-option *ngFor="let time of times" [value]="time">
+              {{ time }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col">
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Time</mat-label>
-      <input type="text"
-             placeholder="Pick one"
-             aria-label="Number"
-             matInput
-             [formControl]="timeControl"
-             [matAutocomplete]="auto">
-      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-        <mat-option *ngFor="let option of filteredTimes | async" [value]="option">
-          {{option}}
-        </mat-option>
-      </mat-autocomplete>
-    </mat-form-field>
+  <div>
+    <div class="row">
+      <div class="col"><h1>Booking End</h1></div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field appearance="fill">
+          <mat-label>Date</mat-label>
+          <input
+            matInput
+            formControlName="endDate"
+            [matDatepicker]="endPicker"
+          />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="endPicker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #endPicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col text-center">
+        <mat-form-field appearance="fill">
+          <mat-label>Time</mat-label>
+          <mat-select formControlName="endTime">
+            <mat-option *ngFor="let time of times" [value]="time">
+              {{ time }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
   </div>
-</div>
+  <div class="row">
+    <div class="col text-center">
+      <button mat-raised-button color="primary" (click)="createTimeSlot()" [disabled]="timeSlotForm.invalid">Create Timeslot</button>
+    </div>
+  </div>
+</form>

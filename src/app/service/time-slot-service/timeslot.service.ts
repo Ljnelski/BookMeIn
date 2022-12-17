@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, tap } from 'rxjs';
+import { TimeSlot } from 'src/app/models/timeslot';
+import { User } from 'src/app/models/user';
 import { UserRole } from 'src/app/models/user_roles';
 import { ApiService } from '../api-service/api.service';
 import { AuthService } from '../auth-service/auth.service';
@@ -19,16 +21,35 @@ export class TimeSlotService {
   getTimeSlots() {
     // Guard Clauses
     if (!this.authService.user) return;
+    if (!this.authService.organization) return;
     if (this.authService.lacksRole(UserRole.serviceProvider)) return;
 
+    console.log(this.authService.organization);
+    console.log(this.authService.organization['_id']);
+
     this.apiService
-      .getOrganizationTimeSlots(this.authService.user._id)
-      .subscribe((timeSlots) => {
-        this._timeSlots$.next(timeSlots);
-      });
+      .getOrganizationTimeSlots(this.authService.organization['_id'])
+      .pipe(
+        tap((timeSlots) => {
+          console.log("TimeSlot's Recived: ", timeSlots);
+          this._timeSlots$.next(timeSlots);
+        })
+      )
+      .subscribe();
   }
 
-  createTimeSlot(startDate, endDate) {
-    console.error("CREATE TIMESLOT NOT IMPLEMENTED")
+  createTimeSlot(startDate: Date, endDate: Date) {
+    if (!this.authService.user?._id) return;
+    if (!this.authService.organization) return;
+    if (this.authService.lacksRole(UserRole.serviceProvider)) return;
+
+    let newTimeSlot: TimeSlot = {
+      startDate: startDate,
+      endDate: endDate,
+      organizationId: this.authService.organization._id,
+      timeSlotStatus: 'Active',
+    };
+
+    this.apiService.createTimeSlot(newTimeSlot).subscribe();
   }
 }

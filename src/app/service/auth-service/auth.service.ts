@@ -52,9 +52,10 @@ export class AuthService {
     this.apiService
       .getUserOrganization(this.user._id)
       .pipe(tap((response) => {
+
         console.log("Getting Organization Response: ", response);
         localStorage.setItem(this.ORGANIZATION, JSON.stringify(response))
-        // this._organization$.next()
+        // this._organization$.next(response)
       }))
       .subscribe();
   }

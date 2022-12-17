@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { timeslot } from 'src/app/models/timeslot';
+import { TimeSlot } from 'src/app/models/timeslot';
 
 @Component({
   selector: 'app-time-slot-display',
@@ -7,5 +7,5 @@ import { timeslot } from 'src/app/models/timeslot';
   styleUrls: ['./time-slot-display.component.css']
 })
 export class TimeSlotDisplayComponent {
-  @Input() timeSlot : timeslot
+  @Input() timeSlot : TimeSlot
 }
