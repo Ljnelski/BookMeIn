@@ -19,10 +19,10 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomePageComponent,
-    canActivate: [IsAuthenticatedGuard, HasRoleGuard],
-    data: {
-      requiredRole: UserRole.customer
-    }
+    // canActivate: [IsAuthenticatedGuard, HasRoleGuard],
+    // data: {
+    //   requiredRole: UserRole.customer
+    // }
   },
   {
     path: 'login',
@@ -35,10 +35,10 @@ const routes: Routes = [
   {
     path: 'service-provider-register',
     component: ServiceProviderRegisterPageComponent,
-    canActivate: [IsAuthenticatedGuard],
-    data: {
-      requiredRole: UserRole.serviceProvider
-    }
+    // canActivate: [IsAuthenticatedGuard],
+    // data: {
+    //   requiredRole: UserRole.serviceProvider
+    // }
   },
   {
     path: 'organization',

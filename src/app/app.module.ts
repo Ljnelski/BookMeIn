@@ -40,6 +40,7 @@ import { IsAuthenticatedGuard } from './guards/is-authenticated/is-authenticated
 import { AuthInterceptor } from './service/auth.interceptor';
 import { MyBookingsPageComponent } from './components/webpage/my-bookings-page/my-bookings-page.component';
 import { BookingService } from './service/booking-service/booking.service';
+import { FooterComponent } from './components/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +49,7 @@ import { BookingService } from './service/booking-service/booking.service';
     RegisterPageComponent,
     ServiceProviderRegisterPageComponent,
     HomePageComponent,
+    FooterComponent,
     DatatableComponent,
     MyAccountPageComponent,
     MyBookingsPageComponent,

@@ -1,34 +1,52 @@
-<!-- <div class="toolbar">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
-</div> -->
-<nav class="navbar fixed top py-2 border-bottom">
-    <div class="container-fluid">
-        <a class="navbar-brand mx-2">BookMeIn</a>
-        <ul class="nav">
+  <a class="navbar-brand" href="#">
+    <img id="logo" height="80" width="120" src="assets/images/logo.png" alt="logo">
+  BookMeIn</a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+
           <li *ngIf="!(authService.isLoggedIn$ | async)" class="nav-item">
-            <a href="login" class="nav-link link-dark px-4">Login</a>
+            <a href="login" class="nav-link link-light px-4">Login</a>
           </li>
+
           <li *ngIf="!(authService.isLoggedIn$ | async)" class="nav-item">
-            <a href="register" class="nav-link link-dark px-4">Register</a>
+            <a href="register" class="nav-link link-light px-4">Register</a>
           </li>
+
+          <li *ngIf="!(authService.isLoggedIn$ | async)" class="nav-item">
+            <a href="home" class="nav-link link-light px-4"><i class="bi bi-house-fill"></i>Home</a>
+            </li>
+
           <li *ngIf="canShowNavItem(userRole.customer)" class="nav-item">
-            <a href="home" class="nav-link link-dark px-4">Home</a>
+            <a href="my-bookings" class="nav-link link-light px-4">My Bookings</a>
           </li>
-          <li *ngIf="canShowNavItem(userRole.customer)" class="nav-item">
-            <a href="my-bookings" class="nav-link link-dark px-4">My Bookings</a>
-          </li>
+
           <li *ngIf="authService.isLoggedIn$ |async" class="nav-item">
-            <a href="my-account" class="nav-link link-dark px-4">My Account</a>
+            <a href="my-account" class="nav-link link-light px-4">My Account</a>
           </li>
+
           <li class="nav-item">
-            <a href="data-table" class="nav-link link-dark px-4">DataTable</a>
+            <a href="data-table" class="nav-link link-light px-4">DataTable</a>
           </li>
+
           <li *ngIf="!canShowNavItem(userRole.serviceProvider)" class="nav-item">
-            <a href="service-provider-register" class="nav-link link-dark px-4">Register As Service Provider</a>
+            <a href="service-provider-register" class="nav-link link-light px-4"> Join Us !</a>
           </li>
+
+          <li *ngIf="canShowNavItem(userRole.customer)" class="navbar-text text-success ml-5 mr-5 d-none d-lg-inline">
+            <i class="bi bi-person-fill"></i> Welcome, {{ userRole.displayName})
+          </li>
+
           <li *ngIf="canShowNavItem(userRole.customer)" class="nav-item">
-            <a href="home" class="nav-link link-dark px-4" (click)="logout()">Logout</a>
+            <a href="home" class="nav-link link-light px-4" (click)="logout()">Logout</a>
         </li>
+
         </ul>
     </div>
 </nav>
