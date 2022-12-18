@@ -36,11 +36,11 @@
           </li> -->
 
           <li *ngIf="!(authService.isLoggedIn$ | async)" class="nav-item">
-            <a href="organization" class="nav-link link-light px-4"> Join Us !</a>
+            <a href="registration" class="nav-link link-light px-4"> Join Us !</a>
           </li>
 
-          <li *ngIf="canShowNavItem(userRole.customer)" class="navbar-text text-success ml-5 mr-5 d-none d-lg-inline">
-            <i class="bi bi-person-fill"></i> Welcome, UserTest
+          <li *ngIf="canShowNavItem(userRole.serviceProvider)" class="navbar-text text-success ml-5 mr-5 d-none d-lg-inline">
+            <i class="bi bi-person-fill"></i> Welcome, TestUser
           </li>
 
           <li *ngIf="canShowNavItem(userRole.customer)" class="nav-item">

@@ -53,8 +53,7 @@
     <div class="col my-3 text-center">
       <button
         mat-raised-button
-        color="primary"
-        [routerLink]="['/service-provider-register']"
+        color="primary" routerLink="/my-bookings"
       >
         View Bookings
       </button>
@@ -76,7 +75,7 @@
   </div>
   <div class="row">
     <div class="col my-3 text-center">
-      <button mat-raised-button color="warn">Delete Account</button>
+      <button (click)="logout()"    mat-raised-button color="warn" routerLink="/login">Delete Account</button>
     </div>
   </div>
 </div>

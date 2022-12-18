@@ -14,4 +14,5 @@ export class MyAccountPageComponent {
   logout() {
     this.authService.logout();
   }
+
 }

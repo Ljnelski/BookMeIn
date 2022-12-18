@@ -88,6 +88,8 @@ export class AuthService {
     this.user = null;
   }
 
+  
+
   hasRole(requiredRole: UserRole): boolean {
     if (!this.user) {
       return false;

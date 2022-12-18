@@ -43,6 +43,7 @@ import { BookingService } from './service/booking-service/booking.service';
 import { FooterComponent } from './components/footer/footer.component';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatTableModule } from '@angular/material/table';
+import { RegisterComponent } from './components/register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +62,7 @@ import { MatTableModule } from '@angular/material/table';
     TimeSlotDisplayComponent,
     OrganizationPageComponent,
     CreateTimeSlotPageComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

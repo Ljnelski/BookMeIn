@@ -1,0 +1,14 @@
+.RegisterForm {
+  min-width: 100px;
+  max-width: 300px;
+  width: 150%;
+}
+
+.Registrationwidth {
+  width: 100%;
+}
+
+
+td {
+  padding-right: 8px;
+}
