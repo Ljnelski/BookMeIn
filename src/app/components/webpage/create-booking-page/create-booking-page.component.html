@@ -1,8 +1,7 @@
 <ng-container [ngSwitch]="stepperOrientation | async">
-    <div *ngSwitchCase="'horizontal'">Make your screen smaller to see a vertical stepper</div>
-    <div *ngSwitchCase="'vertical'">Make your screen larger to see a horizontal stepper</div>
+
   </ng-container>
-  
+
   <mat-stepper class="example-stepper"  [orientation]="(stepperOrientation | async)!">
     <mat-step [stepControl]="firstFormGroup" label="Fill out your name">
       <form [formGroup]="firstFormGroup">
@@ -53,4 +52,3 @@
       </div>
     </mat-step>
   </mat-stepper>
-  
