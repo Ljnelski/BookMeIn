@@ -1,7 +1,16 @@
 <ng-container [ngSwitch]="stepperOrientation | async">
-
+  <form action="https://www.google.com/maps?" class="searchform" method="get" name="searchform" target="_blank">
+    
+    <input autocomplete="on" class="form-control search" name="q" placeholder="location" value="Search here"  type="text" >
+  <br>
+    <button class="button" type="submit">Search</button>
+    </form>
   </ng-container>
+  
 
+  
+    
+ 
   <mat-stepper class="example-stepper"  [orientation]="(stepperOrientation | async)!">
     <mat-step [stepControl]="firstFormGroup" label="Fill out your name">
       <form [formGroup]="firstFormGroup">
