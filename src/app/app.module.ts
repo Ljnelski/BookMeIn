@@ -41,6 +41,8 @@ import { AuthInterceptor } from './service/auth.interceptor';
 import { MyBookingsPageComponent } from './components/webpage/my-bookings-page/my-bookings-page.component';
 import { BookingService } from './service/booking-service/booking.service';
 import { FooterComponent } from './components/footer/footer.component';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatTableModule } from '@angular/material/table';
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,6 +77,8 @@ import { FooterComponent } from './components/footer/footer.component';
     MatNativeDateModule,
     MatAutocompleteModule,
     MatSelectModule,
+    MatStepperModule,
+    MatTableModule
   ],
   providers: [
     ApiService,

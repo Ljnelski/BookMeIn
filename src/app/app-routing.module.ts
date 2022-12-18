@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CreateBookingPageComponent } from './components/webpage/create-booking-page/create-booking-page.component';
 import { CreateTimeSlotPageComponent } from './components/webpage/create-time-slot-page/create-time-slot-page.component';
 import { DatatableComponent } from './components/webpage/datatable/datatable.component';
 import { HomePageComponent } from './components/webpage/home-page/home-page.component';
@@ -35,18 +36,23 @@ const routes: Routes = [
   {
     path: 'service-provider-register',
     component: ServiceProviderRegisterPageComponent,
-    // canActivate: [IsAuthenticatedGuard],
-    // data: {
-    //   requiredRole: UserRole.serviceProvider
-    // }
+    canActivate: [IsAuthenticatedGuard],
+    data: {
+      requiredRole: UserRole.serviceProvider
+    }
   },
   {
     path: 'organization',
     component: OrganizationPageComponent,
-    canActivate: [IsAuthenticatedGuard, HasRoleGuard],
-    data: {
-      requiredRole: UserRole.serviceProvider
-    }
+    // canActivate: [IsAuthenticatedGuard, HasRoleGuard],
+    // data: {
+    //   requiredRole: UserRole.serviceProvider
+    // }
+  },
+  { path: 'Createbooking',
+  component: CreateBookingPageComponent,
+  canActivate: [IsAuthenticatedGuard]
+
   },
   {
     path: 'my-bookings',
